@@ -38,19 +38,7 @@ export const relayOff = (req, res) =>{
             console.log(message.sid)
         });
     }
-    // res.sendStatus(200);
-
-   
-    //  let n=0;
-    //  while(n<=3){
-    //     client.messages.create({
-    //         to: '+56959681608',
-    //         from: '+16065432862',
-    //         body: "OFF"
-    //     })
-    //     .then(message => console.log(message.sid));
-    //     n++;
-    // }
+    
     res.sendStatus(200);
 
 }

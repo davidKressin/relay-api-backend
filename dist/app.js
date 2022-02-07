@@ -19,10 +19,11 @@ var app = (0, _express["default"])();
 
 require('dotenv').config();
 
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2); // middlewares
 
-app.use((0, _morgan["default"])('dev')); //routes
+app.use((0, _morgan["default"])('dev'));
+app.use((0, _cors["default"])()); //routes
 
 app.use(_index["default"]);
 var _default = app;

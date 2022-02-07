@@ -1,0 +1,10 @@
+@api = http://localhost:3000/
+@on = http://localhost:3000/ON
+@off = http://localhost:3000/OFF
+
+
+GET {{api}}
+###
+POST {{on}}
+### 
+POST {{off}}

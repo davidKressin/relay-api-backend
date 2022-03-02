@@ -10,7 +10,7 @@ var sendSms = require('../send-sms.js');
 var accountSid = process.env.ACCOUNT_SID;
 var authToken = process.env.AUTH_TOKEN;
 
-var client = require('twilio')('AC51e93bdc0ffb4de19d52c249bdca7084', '5030d5d11aa13aa7ef9e69f8988cc22c');
+var client = require('twilio')('AC51e93bdc0ffb4de19d52c249bdca7084', 'b7589c6a0f1d808d70c5c986927a0e92');
 
 var getIndex = function getIndex(req, res) {
   res.send("mostrar botones");

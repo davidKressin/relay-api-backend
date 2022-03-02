@@ -1,0 +1,46 @@
+@api = http://localhost:3000/
+@on = http://localhost:3000/ON
+@off = http://localhost:3000/OFF
+@setSms = http://localhost:3000/set-sms
+@editSms = http://localhost:3000/set-sms/edit/6206899324503e2d6daf3a3d
+@deleteSms = http://localhost:3000/set-sms/delete/6206899324503e2d6daf3a3d
+
+
+
+
+GET {{api}}
+###
+POST {{on}}
+### 
+POST {{off}}
+
+###
+GET {{setSms}}
+###
+POST {{setSms}} HTTP/1.1
+content-type: application/json
+
+{
+    "message": "sample",
+    "phoneNumber": "+56959681608",
+    "timeZone": "Chile/Continental",
+    "time": "2022-02-14T13:26:00-03:00"
+}
+
+###
+GET http://localhost:3000/set-sms/create
+
+###
+GET {{editSms}}
+###
+POST {{editSms}}
+content-type: application/json
+
+{
+    "message": "Sent from your Twilio trial account - ON",
+    "phoneNumber": "+56921110057",
+    "timeZone": "Chile/Continental",
+    "time": "02-17-2022 13:46pm"
+}
+###
+POST {{deleteSms}}

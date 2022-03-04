@@ -18,8 +18,8 @@ app.set('json spaces', 2);
 
 
 // middlewares
-app.use(morgan('dev'));
 app.use(cors());
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
     extended: true
   }));

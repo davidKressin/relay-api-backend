@@ -21,7 +21,7 @@ app.set('json spaces', 2);
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
   }));
 app.use(bodyParser.json());
 app.use(express.json());

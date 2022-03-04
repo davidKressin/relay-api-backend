@@ -21,7 +21,7 @@
     "express-handlebars": "^6.0.2",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.34",
-    "mongoose": "^4.4.3",
+    "mongoose": "^5.10.11",
     "morgan": "^1.10.0",
     "twilio": "^3.73.0"
   },

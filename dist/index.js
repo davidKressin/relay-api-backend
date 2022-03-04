@@ -10,8 +10,16 @@ _app["default"].listen(_app["default"].get('port'), function () {
   console.log('server on port ', _app["default"].get('port'));
 });
 
-_mongoose["default"].connect('mongodb://127.0.0.1:27017/relay-app', {
-  useMongoClient: true
-}).then(console.log("connectado a la db"));
+var user = "david";
+var password = "davidignacio";
+var dbname = "relay-app";
+var uri = "mongodb+srv://".concat(user, ":").concat(password, "@clusterbootcamp.xtlf3.mongodb.net/").concat(dbname, "}?retryWrites=true&w=majority");
+
+_mongoose["default"].connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(console.log("connectado a la db"))["catch"](function (e) {
+  return console.error(e);
+});
 
 _mongoose["default"].Promise = Promise; // mongoose.Promise = ('bluebird');

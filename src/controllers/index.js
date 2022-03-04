@@ -6,7 +6,7 @@ const client =require('twilio')('AC51e93bdc0ffb4de19d52c249bdca7084', 'b7589c6a0
 
 
 export const getIndex = (req, res) =>{
-    res.send("mostrar botones")
+    res.send("mostrando botones")
 }
 
 

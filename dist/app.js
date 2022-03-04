@@ -30,10 +30,10 @@ require('dotenv').config();
 app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2); // middlewares
 
-app.use((0, _morgan["default"])('dev'));
 app.use((0, _cors["default"])());
+app.use((0, _morgan["default"])('dev'));
 app.use(bodyParser.urlencoded({
-  extended: false
+  extended: true
 }));
 app.use(bodyParser.json());
 app.use(_express["default"].json()); // app.locals.moment = moment;

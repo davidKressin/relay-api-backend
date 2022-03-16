@@ -10,7 +10,6 @@ const SetSmsSchema = new Schema({
     time: {type: Date, index: true},
 })
 
-
 SetSmsSchema.statics.sendSms = (callback) =>{
     const searchDate = new Date();
     const now = moment().tz("Chile/Continental").format()
@@ -27,7 +26,6 @@ SetSmsSchema.statics.sendSms = (callback) =>{
             date = moment(sms.time).tz(sms.timeZone);
             // let time = date.toISOString();
 
-            
             console.log(date);
 
             return date.format() === ahora.format();
@@ -37,8 +35,6 @@ SetSmsSchema.statics.sendSms = (callback) =>{
             //       .diff(moment(searchDate).utc())
             //     ).asMinutes()
             //   )  === "0";
-
-
         });
         console.log(smss.length);
         if(smss.length > 0){
@@ -46,7 +42,6 @@ SetSmsSchema.statics.sendSms = (callback) =>{
             sendSms(smss);
         }
     });
-
 
     function sendSms(smss){
         const client = require('twilio')("AC51e93bdc0ffb4de19d52c249bdca7084", "b7589c6a0f1d808d70c5c986927a0e92");
@@ -82,5 +77,5 @@ SetSmsSchema.statics.sendSms = (callback) =>{
     }
 }
 
-const SetSms = mongoose.model('setSms', SetSmsSchema)
+const SetSms = mongoose.model('setsms', SetSmsSchema)
 module.exports = SetSms;

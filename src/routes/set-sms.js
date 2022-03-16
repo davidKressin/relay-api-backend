@@ -3,7 +3,6 @@ import moment from "moment";
 import SetSms from "../models/set-sms";
 const momentTimeZone = require('moment-timezone');
 
-
 const router = Router();
 
 const getTimesZones = ()=>{
@@ -38,12 +37,23 @@ router.get('/:id', (req, res)=>{
     // res.send('holaaaa')
 });
 
+// GET: /set-sms/edit/:id
+router.get('/edit/:id', (req, res)=>{
+    const id = req.params.id;
+    console.log(id)
+    SetSms.findOne({_id: id})
+    .then(function(sms){
+        // const zones = getTimesZones();
+        res.json({sms})
+    })
+})
 
 // POST: /set-sms
 router.post('/', (req, res)=>{
     const message = req.body.message;
     const phoneNumber = req.body.phoneNumber;
     const timeZone = req.body.timeZone;
+    console.log(timeZone);
     // const time = moment(req.body.time, 'MM-DD-YYYY hh:mma').tz("Chile/Continental");
     const time = moment.tz(req.body.time, 'DD-MM-YYYY hh:mma', timeZone);
     // console.log(req.body, time);
@@ -60,16 +70,6 @@ router.post('/', (req, res)=>{
     });
 });
 
-// GET: /set-sms/edit/:id
-router.get('/edit/:id', (req, res)=>{
-    const id = req.params.id;
-    console.log(id)
-    SetSms.findOne({_id: id})
-    .then(function(sms){
-        // const zones = getTimesZones();
-        res.json({sms})
-    })
-})
 
 // POST: /set-sms/edit/:id
 router.post('/edit/:id', (req, res)=>{
@@ -77,7 +77,7 @@ router.post('/edit/:id', (req, res)=>{
     const message = req.body.message;
     const phoneNumber = req.body.phoneNumber;
     const timeZone = req.body.timeZone;
-    const time = moment(req.body.time, 'DD-MM-YYYY hh:mma').tz(timeZone);
+    const time = moment.tz(req.body.time, 'DD-MM-YYYY hh:mma',timeZone);
 
     SetSms.findOne({_id:id})
     .then(function(sms) {
@@ -89,6 +89,7 @@ router.post('/edit/:id', (req, res)=>{
         sms.save()
             .then(function() {
             res.send('editado');
+            console.log(sms.time)
         });
     });
 })
